@@ -4,8 +4,6 @@ import React from 'react'
 function Newsitem(props) {
     let article = props.article
     
-    
-    
     return (
         
             <div className="shadow p-3 mb-5 bg-white rounded">
