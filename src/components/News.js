@@ -27,7 +27,6 @@ function News(props) {
             .catch(error => {setarticles([])})
             
             document.title = `Top News | ${props.category} Headlines`
-            // eslint-disable-next-line
     },[props.category, props.search])
 
     useEffect(() => {
@@ -39,21 +38,9 @@ function News(props) {
                 })
                 .catch(error => {setarticles([])})
         }
-            // eslint-disable-next-line
     }, [page, props.search])
 
     
-
-    // const handlePrevClick = () => {
-    //     setloading(true)
-    //     setpage(page-1)
-       
-    // }
-
-    // const handleNextClick = () => {
-    //     setloading(true)
-    //     setpage(page+1)
-    // }
     let catg = props.category
     catg = catg[0].toUpperCase() + catg.substring(1)
 
@@ -61,10 +48,9 @@ function News(props) {
     return (
         <div className="container" style={{marginTop:"4.5rem"}}>
             <h1 style={{marginTop:'5rem', marginBottom:'3rem'}} className='text-center'>Top {catg} Headlines for Today</h1>
-            {/* {loading && <Spinner />} */}
 
             <InfiniteScroll
-                dataLength = {articles.length} //This is important field to render the next data
+                dataLength = {articles.length} 
                 next = {
                     ()=>{setpage(page+1)}
                 }
@@ -83,12 +69,7 @@ function News(props) {
                     </div>
                 </div>
             </InfiniteScroll>
-            {/* <div style={{position: "relative", bottom:"3px"}}>
-                <div className="d-flex justify-content-between mb-4">
-                    <button type="button" disabled={page<=1} className="btn btn-outline-dark" onClick={handlePrevClick}>&larr; Previous</button>
-                    <button type="button" disabled={page>=Math.ceil(results/9)} className="btn btn-outline-dark" onClick={handleNextClick}>Next &rarr;</button>
-                </div>
-            </div> */}
+           
         </div>
     )
 }
